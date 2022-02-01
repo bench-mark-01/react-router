@@ -1,10 +1,13 @@
 const path = require('path');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
  
 module.exports = {
+  mode: 'development',
   devServer: {
-    static: "dist",
-    open: true
+    static: 'dist',
+    open: true,
+    historyApiFallback: true
   },
   entry: './src/js/index.js',  
   output: { 
@@ -14,20 +17,30 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.jsx?$/,
+          exclude: /(node_modules|bower_components)/,
+          use: [{
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-react', '@babel/preset-env']
+            }
+          }]
+        },
+      {
         test: /\.scss$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
           },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               url: false,
               sourceMap: true,
             },
           },
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {
               implementation: require('sass'),
               sassOptions: {
@@ -42,10 +55,10 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "style.css",
+      filename: 'style.css',
     }),
   ],
-  devtool: "source-map",
+  devtool: 'source-map',
   watchOptions: {
     ignored: /node_modules/
   },
