@@ -1,5 +1,6 @@
 import React from 'react';
 import { InputServey } from './InputServey';
+import { PaginationBtn } from './PaginationBtn';
 
 export function ServeyHeader(){
     return(
@@ -17,5 +18,4 @@ export function Servey(){
     );
 };
 
-
-
+export { PaginationBtn as ServeyPagination };

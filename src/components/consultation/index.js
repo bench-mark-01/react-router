@@ -1,5 +1,6 @@
 import React from 'react';
 import { InputConsultation } from './InputConsultation';
+import { PaginationBtn } from './PaginationBtn';
 
 export function ConsultationHeader(){
     return(
@@ -16,3 +17,5 @@ export function Consultation(){
         </>
     );
 };
+
+export { PaginationBtn as ConsultationPagitation }

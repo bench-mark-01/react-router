@@ -5,15 +5,9 @@ import {
     Route
 } from 'react-router-dom';
 
-import { BasicInfoHeader, BasicInfo } from './basicinfo';
-import { PaginationBtn as BasicInfoPagination } from './basicinfo/PaginationBtn';
-
-import { ServeyHeader, Servey } from './servey';
-import { PaginationBtn as ServeyPagination } from './servey/PaginationBtn';
-
-import { ConsultationHeader, Consultation } from './consultation';
-import { PaginationBtn as ConsultationPagitation } from './consultation/PaginationBtn';
-
+import { BasicInfoHeader, BasicInfo, BasicInfoPagination } from './basicinfo';
+import { ServeyHeader, Servey, ServeyPagination } from './servey';
+import { ConsultationHeader, Consultation, ConsultationPagitation } from './consultation';
 import { NotFound } from './NotFound';
 
 export default function Layout(){

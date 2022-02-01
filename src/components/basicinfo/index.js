@@ -1,6 +1,7 @@
 import React, { createElement, useState } from 'react';
 import { GenderSelect } from './GenderSelect';
 import { InputBirthDate } from './InputBirthDate';
+import { PaginationBtn } from './PaginationBtn';
 
 export function BasicInfoHeader(){
     return(
@@ -18,3 +19,5 @@ export function BasicInfo(){
         </>
     );
 };
+
+export { PaginationBtn as BasicInfoPagination } 
