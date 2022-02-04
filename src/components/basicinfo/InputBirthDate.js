@@ -5,13 +5,6 @@ export function InputBirthDate(){
     const thisYear = today.getFullYear();
     const oldYear = thisYear - 80;
 
-    const yearArray = [];
-    const monthArray = [];
-    let days_28 = [];
-    let days_29 = [];
-    let days_30 = [];
-    let days_31 = [];
-
     const [birthYear, setBirthYear] = useState([]);
     const [birthMonth, setBirthMonth] = useState([]);
     const [birthDate, setBirthDate] = useState([]);
@@ -39,50 +32,34 @@ export function InputBirthDate(){
             console.error('undefind');
         }
     };
-
     useEffect(() =>{
+        const defaultYears = [];
+        const defaultMonths = [];
+        const defaultDays = [];
         for(let i = oldYear; i<= thisYear; i++){
-            yearArray.push(i);
+            defaultYears.push(i);
         }
-        setBirthYear(yearArray);
+        setBirthYear(defaultYears);
         
         for(let i = 1; i<= 12; i++){
-            monthArray.push(i);
+            defaultMonths.push(i);
         }
-        setBirthMonth(monthArray);
+        setBirthMonth(defaultMonths);
         
         for(let i = 1; i<= 31; i++){
-            days_31.push(i);
+            defaultDays.push(i);
         }
-        for(let i = 1; i<= 30; i++){
-            days_30.push(i);
-        }
-        for(let i = 1; i<= 29; i++){
-            days_29.push(i);
-        }
-        for(let i = 1; i<= 28; i++){
-            days_28.push(i);
-        }
-        setBirthDate(days_31);
+        setBirthDate(defaultDays);
     },[])
 
     useEffect(() =>{
         const lastDay = new Date(userSelectYear, userSelectMonth, 0).getDate();
-        switch (lastDay){
-            case 28:{
-                setBirthDate(days_28);
-            }
-            case 29:{
-                setBirthDate(days_29);
-            }
-            case 30:{
-                setBirthDate(days_30);
-            }
-            case 31:{
-                setBirthDate(days_31);
-            }
+        const changeDays = [];
+        for(let i = 1; i <= lastDay; i++){
+            changeDays.push(i);
         }
-    },[userSelectMonth]);
+        setBirthDate(changeDays);
+    },[userSelectMonth, userSelectYear]);
 
     return(
         <>
