@@ -4,9 +4,13 @@ import { PaginationBtn } from './PaginationBtn';
 
 export function ServeyHeader(){
     return(
-        <h1>
-            ご相談内容をご記入ください
-        </h1>
+        <>
+            <span class="tag is-primary">STEP2</span>
+            <h1>
+                <i class="fas fa-chalkboard-teacher"></i>
+                ご相談内容をご記入ください
+            </h1>
+        </>
     );
 };
 

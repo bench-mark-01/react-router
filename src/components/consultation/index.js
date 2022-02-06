@@ -4,9 +4,13 @@ import { PaginationBtn } from './PaginationBtn';
 
 export function ConsultationHeader(){
     return(
-        <h1>
-            ご相談内容をご記入ください
-        </h1>
+        <>
+            <span class="tag is-primary">STEP3</span>
+            <h1>
+                <i class="fas fa-file-alt"></i>
+                ご相談内容をご記入ください
+            </h1>
+        </>
     );
 };
 

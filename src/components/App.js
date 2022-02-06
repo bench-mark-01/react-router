@@ -17,7 +17,7 @@ export default function Layout(){
                 <section className="columns is-full is-centered is-vcentered">
                     <div className="column is-half my-6">
                         <article className="message">
-                            <div className="message-header">
+                            <div className="message-header is-flex is-justify-content-center">
                                 <Routes>
                                     <Route path='/' element={<BasicInfoHeader/>}/>
                                     <Route path='/inputservey' element={<ServeyHeader/>}/>

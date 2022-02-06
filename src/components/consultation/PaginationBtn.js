@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 export function PaginationBtn(){
     return(
         <>
-            <Link to='/'>
-                <a class="button is-link">次へ進む</a>
+            <Link to='/' className='button is-link'>
+                前の質問に戻る
             </Link>
-            <Link to='/'>
-                <a class="button is-link">次へ進む</a>
+            <Link to='' className ="button is-link">
+                回答内容を確認する
             </Link>
         </>
     );

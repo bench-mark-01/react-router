@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 export function InputBirthDate(){
     const today = new Date();
@@ -63,57 +63,67 @@ export function InputBirthDate(){
 
     return(
         <>
-            <p>
-                -生年月日-
-            </p>        
-            <form>
+            <div className='field'>
                 <label>
-                    <select
-                        name = 'year'
-                        onChange={handleChange}
-                    >
-                        {birthYear.map((year) =>{
-                            return(
-                                <option key={'Year:' + year} value={year}>
-                                    {year}
-                                </option>
-                            )     
-                        })}
-                    </select>
-                    年
-                </label>
-                <label>
-                <select
-                        name = 'month'
-                        onChange={handleChange}
-                        >
-                        {birthMonth.map((month) =>{
-                            return(
-                                <option key={'Month:' + month} value={month}>
-                                    {month}
-                                </option>
-                            )     
-                        })}
-                    </select>
-                    月
-                </label>
-                <label>
-                <select
-                        name = 'date'
-                        onChange={handleChange}
-                        >
-                        {birthDate.map((date) =>{
-                            return(
-                                <option key={'Date:' + date} value={date}>
-                                    {date}
-                                </option>
-                            )     
-                        })}
-                    </select>
-                    日
-                </label>
-
-            </form>
+                    -生年月日-
+                </label>  
+                <form className='is-flex is-align-items-center'>
+                    <div className='select'>
+                        <select
+                            name = 'year'
+                            onChange={handleChange}
+                            >
+                            {birthYear.map((year) =>{
+                                const selectyear = new Date(year,0,1);
+                                const options = {year: 'numeric'};
+                                const jp = selectyear.toLocaleDateString('ja-jp-u-ca-japanese', options);
+                                return(
+                                    <option key={'Year:' + year} value={year}>
+                                        {year + '(' + jp + ')'}
+                                    </option>
+                                )     
+                            })}
+                        </select>
+                    </div>
+                    <label>
+                        年
+                    </label>
+                    <div className='select'>
+                        <select
+                            name = 'month'
+                            onChange={handleChange}
+                            >
+                            {birthMonth.map((month) =>{
+                                return(
+                                    <option key={'Month:' + month} value={month}>
+                                        {month}
+                                    </option>
+                                )     
+                            })}
+                        </select>
+                    </div>
+                    <label>
+                        月
+                    </label>
+                    <div className='select'>
+                        <select
+                            name = 'date'
+                            onChange={handleChange}
+                            >
+                            {birthDate.map((date) =>{
+                                return(
+                                    <option key={'Date:' + date} value={date}>
+                                        {date}
+                                    </option>
+                                )     
+                            })}
+                        </select>
+                    </div>
+                    <label>
+                        日
+                    </label>
+                </form>
+            </div>
         </>
     )
 }
